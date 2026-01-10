@@ -10,6 +10,7 @@ const vitePressOptions: UserConfig = {
     nav: [
       { text: "Home", link: "/" },
       { text: "Social", link: "/social.md" },
+      { text: "Chi Siamo", link: "/about.md" },
       //{ text: "Wiki", link: "/wiki" },
       { text: "MarconiCraft", link: "/marconicraft" },
       { text: "Mappa", link: "https://map.studentimarconi.org" },
