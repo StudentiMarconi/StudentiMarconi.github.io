@@ -11,13 +11,17 @@ const vitePressOptions: UserConfig = {
     nav: [
       { text: "Home", link: "/" },
       {
+        text: "Progetti",
+        items: [{ text: "Marconi's Got Talent", link: "/progetti/mgt" }],
+      },
+      {
         text: "Info",
         items: [
           { text: "Social", link: "/social.md" },
           { text: "Chi Siamo", link: "/about.md" },
         ],
       },
-      {
+      /*{
         text: "MarconiCraft",
         activeMatch: "/marconicraft",
         items: [
@@ -30,7 +34,7 @@ const vitePressOptions: UserConfig = {
             link: "https://map.studentimarconi.org",
           },
         ],
-      },
+      },*/
       {
         text: "Link",
         items: [
@@ -117,8 +121,8 @@ const vitePressOptions: UserConfig = {
 const vitePressSidebarOptions = [
   {
     documentRootPath: "site",
-    scanStartPath: "wiki",
-    resolvePath: "/wiki/",
+    scanStartPath: "progetti",
+    resolvePath: "/progetti/",
     useTitleFromFrontmatter: true,
     useTitleFromFileHeading: true,
     collapsed: true,
@@ -128,6 +132,17 @@ const vitePressSidebarOptions = [
   },
   {
     documentRootPath: "site",
+    scanStartPath: "wiki",
+    resolvePath: "/wiki/",
+    useTitleFromFrontmatter: true,
+    useTitleFromFileHeading: true,
+    collapsed: true,
+    useFolderTitleFromIndexFile: true,
+    useFolderLinkFromIndexFile: true,
+    sortMenusByFrontmatterOrder: true,
+  },
+  /*{
+    documentRootPath: "site",
     scanStartPath: "marconicraft",
     resolvePath: "/marconicraft/",
     useTitleFromFrontmatter: true,
@@ -136,7 +151,7 @@ const vitePressSidebarOptions = [
     useFolderTitleFromIndexFile: true,
     useFolderLinkFromIndexFile: true,
     sortMenusByFrontmatterOrder: true,
-  },
+  },*/
 ];
 
 export default defineConfig(
