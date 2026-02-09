@@ -8,5 +8,11 @@
     "site:dev": "vitepress dev --host 0.0.0.0",
     "site:build": "vitepress build",
     "site:preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@primeuix/themes": "^2.0.3",
+    "@tailwindcss/vite": "^4.1.18",
+    "primevue": "^4.5.4",
+    "tailwindcss": "^4.1.18"
   }
 }

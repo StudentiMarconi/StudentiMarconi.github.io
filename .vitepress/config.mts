@@ -1,5 +1,6 @@
 import { defineConfig, UserConfig } from "vitepress";
 import { withSidebar } from "vitepress-sidebar";
+import tailwindcss from '@tailwindcss/vite';
 
 const vitePressOptions: UserConfig = {
   srcDir: "site",
@@ -116,6 +117,14 @@ const vitePressOptions: UserConfig = {
     returnToTopLabel: "Torna all'inizio",
     skipToContent: "Vai al contenuto",
   },
+  vite: {
+  	resolve: {
+  	  dedupe: ['vue', /^primevue\/.+/]
+  	},
+  	plugins: [
+  		tailwindcss()
+  	]
+  }
 };
 
 const vitePressSidebarOptions = [
