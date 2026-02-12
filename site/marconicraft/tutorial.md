@@ -38,7 +38,7 @@ Alcuni Launcher hanno funzionalità aggiuntive, come creare piú "istanze" (vers
 
 Ufficialmente, Minecraft sarebbe da scaricare con il Launcher ufficiale di Mojang (riferito come "Launcher Vanilla"), ma è molto semplice e non permette di sfruttare tutte le funzionalità di MarconiCraft.
 
-Uno dei Launcher piú completi è [PrismLauncher](https://prismlauncher.org): supporta tutte le funzionalità che si possano mai volere, dalle istanze separate allo scaricate mod, resourcepack, shader, mondi e addirittura datapack senza mai lasciare il Launcher.
+Uno dei Launcher piú completi è [PrismLauncher](https://prismlauncher.org): supporta tutte le funzionalità che si possano mai volere, dalle istanze separate allo scaricare mod, resourcepack, shader, mondi e addirittura datapack senza mai lasciare il Launcher.
 
 Il Launcher che consigliamo invece è [ElyPrismLauncher](https://example.com). È una versione modificata di Prism che aggiunge un altro paio di funzionalità, ma la piú importante per MarconiCraft è poter giocare in "offline mode", cioè senza un account Mojang e quindi senza pagare.
 
