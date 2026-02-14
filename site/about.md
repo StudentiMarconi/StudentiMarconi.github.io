@@ -10,6 +10,8 @@ import {
   VPTeamPageSection
 } from 'vitepress/theme'
 
+import Button from "primevue/button";
+
 const rappresentanti = [
   {
     avatar: "https://avatars.githubusercontent.com/u/142306632?v=4",
@@ -62,7 +64,11 @@ const staff = [
 <VPTeamPage>
   <VPTeamPageTitle>
     <template #title>Chi siamo</template>
-    <template #lead>Siamo rappresentanti e studenti del Marconi come voi.</template>
+    <template #lead>
+        Siamo rappresentanti e studenti del Marconi come voi.
+        <br><br>
+        <Button as="a" label="Vai alla pagina ufficiale" href="https://rappresentantimarconi.eu/" target="_blank" rel="noopener" />
+    </template>
   </VPTeamPageTitle>
   <VPTeamPageSection>
     <template #title>Rappresentanti</template>
