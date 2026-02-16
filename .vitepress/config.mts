@@ -9,6 +9,7 @@ const vitePressOptions: UserConfig = {
     config(md) {
       md.use(tutorialPlugin);
     },
+    math: true,
   },
 
   srcDir: "site",
