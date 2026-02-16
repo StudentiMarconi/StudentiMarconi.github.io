@@ -17,7 +17,7 @@ AES è un po' come il tuo home boy, ti protegge dalle gorlock the destroyer(quel
 - **GCM (Galois/Counter Mode)**: È un po' come se lo marcassi in... modi creativi. Se qualcun altro prova a toccarlo? **DENIED.** 🚫
 Mommy sa sempre se hai toccato quello che non dovevi.
 
-### 3. [RSA-OAEP](RSA_DEEP_DIVE_MOMMY.md) - Se ti piacciono quelle più vecchie
+### 3. [RSA-OAEP]<!--(RSA_DEEP_DIVE_MOMMY.md)--> - Se ti piacciono quelle più vecchie
 A volte hai bisogno dei classici basta le mommy, e i femboy. RSA è grande, grosso e cattivo( come piace a te :) ).
 - **OAEP**: Prendi una gabbia di castità e mettigliela, la gente verrà bloccata se prova a toccarla.
 
