@@ -607,3 +607,295 @@ public static String inverti(String S) {
     }
 }
 ```
+
+## **⚠️ Eccezioni** {#eccezioni}
+
+Durante l’esecuzione di un programma Java possono verificarsi **situazioni anomale** (errori) che il compilatore non può prevedere, come:
+
+- input errati
+- errori logici nel codice
+- problemi esterni (file mancanti, connessioni, hardware)
+
+Java offre un sistema per gestire questi problemi chiamato **gestione delle eccezioni**.
+
+::: info
+Le eccezioni in Java sono oggetti, e fanno parte del paradigma orientato agli oggetti.
+:::
+
+---
+
+### **❗ Esempi di errori comuni** {#errori-comuni}
+
+#### **📌 Array fuori dai limiti**
+
+```java
+int[] array = new int[5];
+
+for (int i = 0; i <= array.length; i++) { // ERRORE
+    System.out.println(array[i]);
+}
+````
+
+👉 Errore: indice non valido → `ArrayIndexOutOfBoundsException`
+
+---
+
+#### **➗ Divisione per zero**
+
+```java
+int x = 1;
+int y = 0;
+
+System.out.println(x / y); // ERRORE
+```
+
+👉 Errore: `ArithmeticException`
+
+::: warning
+Con `double`, la divisione per zero NON genera eccezioni ma valori speciali (es. `NaN`).
+:::
+
+---
+
+#### **🚫 NullPointer**
+
+```java
+Object o = null;
+System.out.println(o.toString()); // ERRORE
+```
+
+👉 Errore: `NullPointerException`
+
+---
+
+#### **🔢 Parsing errato**
+
+```java
+int x = Integer.parseInt("10,2"); // ERRORE
+```
+
+👉 Errore: `NumberFormatException`
+
+---
+
+### **📚 Tipi di eccezioni** {#tipi-eccezioni}
+
+| Eccezione                        | Tipo      | Quando accade           |
+| -------------------------------- | --------- | ----------------------- |
+| `NullPointerException`           | Unchecked | Uso di oggetti `null`   |
+| `ArrayIndexOutOfBoundsException` | Unchecked | Indice array non valido |
+| `ArithmeticException`            | Unchecked | Errori aritmetici       |
+| `NumberFormatException`          | Unchecked | Parsing errato          |
+| `InputMismatchException`         | Unchecked | Input sbagliato         |
+| `IOException`                    | Checked   | Errori di input/output  |
+
+---
+
+### **🧠 Come funzionano** {#come-funzionano}
+
+Quando si verifica un errore:
+
+1. Il metodo **lancia un’eccezione**
+2. L’esecuzione del metodo termina
+3. L’eccezione passa al metodo chiamante
+4. Se non viene gestita → il programma termina
+
+Esempio:
+
+```java
+public class Test {
+    public static void bar() {
+        Object o = null;
+        o.toString(); // ERRORE
+    }
+
+    public static void foo() {
+        bar();
+    }
+
+    public static void main(String[] args) {
+        foo();
+    }
+}
+```
+
+Output:
+
+```output
+Exception in thread "main" java.lang.NullPointerException
+at Test.bar(...)
+at Test.foo(...)
+at Test.main(...)
+```
+
+---
+
+### **🏗️ Gerarchia delle eccezioni** {#gerarchia}
+
+Tutte le eccezioni derivano da `Throwable`:
+
+```text
+Throwable
+ ├── Error        (errori gravi, non gestibili)
+ └── Exception
+      ├── RuntimeException (unchecked)
+      └── altre (checked)
+```
+
+---
+
+### **🚀 Lanciare un’eccezione (`throw`)** {#throw}
+
+Si può generare manualmente un’eccezione:
+
+```java
+if (eta < 0) {
+    throw new IllegalArgumentException("Età negativa: " + eta);
+}
+```
+
+---
+
+### **🛠️ Gestione con try-catch-finally** {#try-catch}
+
+#### **📌 Struttura**
+
+```java
+try {
+    // codice che può generare errori
+}
+catch (ExceptionTipo e) {
+    // gestione errore
+}
+finally {
+    // eseguito SEMPRE
+}
+```
+
+---
+
+#### **🔄 Funzionamento**
+
+- Se NON ci sono errori → esegue `try` → poi `finally`
+- Se c’è un errore:
+
+  - cerca il `catch` compatibile
+  - esegue il `catch`
+  - poi esegue `finally`
+- Se nessun `catch` lo gestisce → propagazione
+
+---
+
+### **🧪 Esempio base**
+
+```java
+try {
+    int x = 10 / 0;
+}
+catch (ArithmeticException e) {
+    System.out.println("Errore: divisione per zero");
+}
+```
+
+---
+
+### **🔁 Esempio con input (robusto)** {#input-robusto}
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int d = 0;
+
+        do {
+            try {
+                System.out.print("Numero: ");
+                d = sc.nextInt();
+
+                if (d != 0) {
+                    System.out.println(d * d);
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Input non valido!");
+                sc.next(); // pulisce input
+            }
+        } while (d != 0);
+
+        sc.close();
+    }
+}
+```
+
+---
+
+### **🔍 Checked vs Unchecked** {#checked-unchecked}
+
+#### **❌ Unchecked**
+
+- `RuntimeException`
+- errori di programmazione
+- NON obbligatorie da gestire
+
+### **✅ Checked**
+
+- errori esterni (file, rete…)
+- DEVONO essere gestite
+
+---
+
+### **📤 Clausola `throws`** {#throws}
+
+Serve per **delegare la gestione** dell’eccezione al chiamante.
+
+```java
+public static void leggiFile() throws IOException {
+    // codice che può generare IOException
+}
+```
+
+👉 Il metodo NON gestisce l’errore, lo passa a chi lo chiama.
+
+---
+
+### **⚠️ Differenza `throw` vs `throws`**
+
+| Keyword  | Significato                |
+| -------- | -------------------------- |
+| `throw`  | Lancia un’eccezione        |
+| `throws` | Dichiara che può lanciarla |
+
+---
+
+### **🧩 finally** {#finally}
+
+Il blocco `finally` viene eseguito **sempre**, anche:
+
+- se c’è un errore
+- se c’è un `return`
+
+```java
+try {
+    // codice
+}
+finally {
+    System.out.println("Sempre eseguito");
+}
+```
+
+👉 Utile per:
+
+- chiudere file
+- liberare risorse
+
+---
+
+### **💡 Consigli pratici** {#consigli}
+
+- Controlla sempre l’input dell’utente
+- Usa `try-catch` solo dove serve
+- Non ignorare le eccezioni
+- Preferisci eccezioni già esistenti
+- Usa `finally` per pulizia risorse
