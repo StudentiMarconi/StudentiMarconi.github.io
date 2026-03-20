@@ -47,7 +47,7 @@ System.out.print("again.");
 
 Output:
 
-```output
+```text
 Hello, World!
 Hello, again.
 ```
@@ -634,7 +634,7 @@ int[] array = new int[5];
 for (int i = 0; i <= array.length; i++) { // ERRORE
     System.out.println(array[i]);
 }
-````
+```
 
 👉 Errore: indice non valido → `ArrayIndexOutOfBoundsException`
 
@@ -721,7 +721,7 @@ public class Test {
 
 Output:
 
-```output
+```text
 Exception in thread "main" java.lang.NullPointerException
 at Test.bar(...)
 at Test.foo(...)
@@ -778,10 +778,10 @@ finally {
 
 - Se NON ci sono errori → esegue `try` → poi `finally`
 - Se c’è un errore:
-
   - cerca il `catch` compatibile
   - esegue il `catch`
   - poi esegue `finally`
+
 - Se nessun `catch` lo gestisce → propagazione
 
 ---
