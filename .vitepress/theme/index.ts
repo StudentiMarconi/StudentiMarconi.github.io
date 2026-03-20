@@ -17,35 +17,37 @@ import "primeicons/primeicons.css";
 // Custom Components
 import Tutorial from "./components/Tutorial.vue";
 import TutorialStep from "./components/TutorialStep.vue";
+import Orario from "./components/Orario.vue";
 
 // PrimeVue Theme
 const PVTheme = definePreset(Lara, {
-  semantic: {
-    primary: {
-      50: "{indigo.50}",
-      100: "{indigo.100}",
-      200: "{indigo.200}",
-      300: "{indigo.300}",
-      400: "{indigo.400}",
-      500: "{indigo.500}",
-      600: "{indigo.600}",
-      700: "{indigo.700}",
-      800: "{indigo.800}",
-      900: "{indigo.900}",
-      950: "{indigo.950}",
-    },
-  },
+	semantic: {
+		primary: {
+			50: "{indigo.50}",
+			100: "{indigo.100}",
+			200: "{indigo.200}",
+			300: "{indigo.300}",
+			400: "{indigo.400}",
+			500: "{indigo.500}",
+			600: "{indigo.600}",
+			700: "{indigo.700}",
+			800: "{indigo.800}",
+			900: "{indigo.900}",
+			950: "{indigo.950}",
+		},
+	},
 });
 
 // VitePress Theme
 export default {
-  extends: DefaultTheme,
-  Layout: () => {
-    return h(DefaultTheme.Layout, null, {});
-  },
-  enhanceApp({ app, router, siteData }) {
-    app.use(PrimeVue, { theme: { preset: PVTheme }, ripple: true });
-    app.component("Tutorial", Tutorial);
-    app.component("TutorialStep", TutorialStep);
-  },
+	extends: DefaultTheme,
+	Layout: () => {
+		return h(DefaultTheme.Layout, null, {});
+	},
+	enhanceApp({ app, router, siteData }) {
+		app.use(PrimeVue, { theme: { preset: PVTheme }, ripple: true });
+		app.component("Tutorial", Tutorial);
+		app.component("TutorialStep", TutorialStep);
+		app.component("Orario", Orario);
+	},
 } satisfies Theme;
